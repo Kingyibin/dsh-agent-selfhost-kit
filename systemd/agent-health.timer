@@ -1,0 +1,10 @@
+[Unit]
+Description=Run agent health check hourly
+
+[Timer]
+OnCalendar=*-*-* *:07:00
+Persistent=true
+Unit=agent-health.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+*.log
+*.pid
+*.bak
+*.bak_*
+state/
+config.json
+.env
+cloud-sync/
+raw/

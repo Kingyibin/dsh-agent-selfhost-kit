@@ -1,0 +1,15 @@
+[Unit]
+Description=Agent bridge (OneBot <-> agent runtime)
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=${REMOTE_HOME}/agent-bridge
+Environment=HOME=${REMOTE_HOME}
+ExecStart=/usr/bin/node src/bridge.js
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

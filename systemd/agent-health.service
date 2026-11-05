@@ -1,0 +1,10 @@
+[Unit]
+Description=Hourly agent health check (no restart storm)
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=HOME=${REMOTE_HOME}
+ExecStart=/usr/bin/python3 ${REMOTE_HOME}/tools/healthcheck.py
+# 体检失败(1) 是正常结果，不能让 systemd 把它当崩溃反复拉起
+SuccessExitStatus=0 1
